@@ -1,0 +1,8 @@
+number="$1"
+divisor="$2"
+ceiling() {
+  awk -vnumber="$number" -vdiv="$divisor" '
+  function ceiling(x){return x%1 ? int(x)+1 : x}
+  BEGIN{ print ceiling(number/div) }'
+}
+ceiling
